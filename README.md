@@ -62,37 +62,43 @@ Screenshot 1 — Multi-container supervision
 Two containers (alpha, beta) running simultaneously under one supervisor process.
 
 (Terminal 1) image
-(screenshot1.jpeg)
-(Terminal 2) image image
+![alt text](<screenshot terminal1.jpeg>)
 
+(Terminal 2) image image
+![alt text](<screenshot terminal2.jpeg>)
 Screenshot 2 — Metadata tracking
 Output of engine ps showing container ID, PID, state, soft/hard limits, and log file path.
+![alt text](screenshot2.jpeg)
 
-image
 Screenshot 3 — Bounded-buffer logging
 Log file contents captured through the producer-consumer logging pipeline.
+![alt text](screenshot3.jpeg)
 
-image
 Screenshot 4 — CLI and IPC
 A CLI stop command sent to the supervisor over a UNIX domain socket, with the supervisor responding.
+![alt text](screenshot4t1.jpeg)
+![alt text](screenshot4t2.jpeg)
 
-image image
 Screenshot 5 — Soft-limit warning
 dmesg output showing the kernel module warning when a container exceeds its soft memory limit.
+![alt text](screenshot5.jpeg)
 
-image
 Screenshot 6 — Hard-limit enforcement
 dmesg output showing SIGKILL sent when a container exceeds its hard memory limit, with ps showing state as killed.
+![alt text](screenshot6t1.jpeg)
+![alt text](screenshot6t2.jpeg)
 
-image
 Screenshot 7 — Scheduling experiment
 Log output from two containers running the same CPU workload at different nice values (-5 vs 10), showing different completion times.
+![alt text](screenshot7t1.jpeg)
+![alt text](screenshot7t2.jpeg)
 
-image image
+
 Screenshot 8 — Clean teardown
 ps aux showing no zombie engine processes, and dmesg confirming clean module unload.
+![alt text](screenshot8t1.jpeg)
+![alt text](screenshot8t2.jpeg)
 
-image
 4. Engineering Analysis
 4.1 Isolation Mechanisms
 Our runtime achieves process and filesystem isolation using Linux namespaces and chroot. When spawn_container() calls clone() with CLONE_NEWPID | CLONE_NEWUTS | CLONE_NEWNS, the kernel creates a new process that sees an independent PID space (PID 1 inside the container), its own hostname, and its own mount namespace.
