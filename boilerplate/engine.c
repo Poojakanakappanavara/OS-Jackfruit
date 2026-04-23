@@ -4,8 +4,8 @@
 
 | Name | SRN |
 |------|-----|
-| Asha | PES2UG24AM030 |
-| Chaya S| PES2UG24AM045 |
+| Pooja kanakappanavara | PES2UG24CS351 |
+| Neha Prabhu | PES2UG24CS312 |
 
 ---
 
